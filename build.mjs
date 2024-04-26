@@ -6,6 +6,7 @@ build({
   packages: "external",
   minify: true,
   entryPoints: ["src/index.ts"],
+  outExtension: "cjs",
   outdir: "dist",
   target: "node16",
 });
