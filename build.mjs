@@ -1,4 +1,4 @@
-import { build } from "esbuild"
+import { build } from "esbuild";
 
 build({
   platform: "node",
@@ -6,5 +6,6 @@ build({
   packages: "external",
   minify: true,
   entryPoints: ["src/index.ts"],
-  outdir:"dist"
-})
+  outdir: "dist",
+  target: "node16",
+});
