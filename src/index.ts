@@ -144,9 +144,9 @@ const panel = new lcd(config);
 
 function format(input: number): string{
   if (input <= 0 && input > -1){
-    return `${Math.ceil(input*12)} in`;
+    return `${Math.ceil(input*12)}in`;
   } else {
-    return `${input} ft`;
+    return `${Math.ceil(input * 10) / 10}ft`;
   }
 }
 
