@@ -142,12 +142,20 @@ const config: Config = {
 const panel = new lcd(config);
 
 
-
+function format(input: number): string{
+  if (input <= 0 && input > -1){
+    return `${Math.ceil(input*12)}in`;
+  } else {
+    return `${input}ft`;
+  }
+}
 
 async function mainLoop(panel: lcd){
   const tideData = await getData();
-  console.log(tideData[tideData.length - 1]);
-  panel.writeLn(0, `Tide: ${tideData[tideData.length - 1].value}ft`);
+  // console.log(tideData[tideData.length - 1]);
+  let text2Write = `Tide: ${format(tideData[tideData.length - 1].value)}`;
+  console.log(text2Write);
+  panel.writeLn(0, text2Write);
 }
 
 setInterval(mainLoop, 5000, panel);

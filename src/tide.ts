@@ -52,7 +52,7 @@ interface Data {
 async function getData(): Promise<Data[]> {
   const startDate = new Date(Date.now() - 1000 * 60 * 60 * 12);
   const endDate = new Date();
-  console.log(startDate.toISOString());
+  // console.log(startDate.toISOString());
   const url = "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?"+ new URLSearchParams({
     product: "water_level",
     begin_date: `${startDate.getFullYear()}${(startDate.getMonth()+1).toString().padStart(2,"0")}${startDate.getDate().toString().padStart(2,"0")} ${startDate.getHours().toString().padStart(2,"0")}:${startDate.getMinutes().toString().padStart(2,"0")}`,
@@ -63,7 +63,7 @@ async function getData(): Promise<Data[]> {
     datum:"MLLW",
     units:"english"
   });
-  console.log(url)
+  // console.log(url)
   const data = (await axios.get(url)).data.data as {t: string; v: string}[];
   return data.map(d => ({date: new Date(d.t), value: parseFloat(d.v)}));
 }
