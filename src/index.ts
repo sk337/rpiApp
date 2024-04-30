@@ -32,6 +32,8 @@ const defaultConfig: Config = {
   DB7: 6,
 };
 
+
+
 class lcd {
   RS: Gpio;
   RW: Gpio;
@@ -123,9 +125,23 @@ class lcd {
   }
 }
 
-
+const config: Config = {
+  RS: 2+512,
+  RW: 3+512,
+  E: 4+512,
+  DB0: 17+512,
+  DB1: 27+512,
+  DB2: 22+512,
+  DB3: 10+512,
+  DB4: 9+512,
+  DB5: 11+512,
+  DB6: 5+512,
+  DB7: 6+512,
+};
 // Initialize the LCD
-const panel = new lcd();
+const panel = new lcd(config);
+
+
 
 
 async function mainLoop(panel: lcd){
