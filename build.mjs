@@ -5,7 +5,7 @@ build({
   bundle: true,
   packages: "external",
   // format: ""
-  minify: true,
+  // minify: true,
   entryPoints: ["src/index.ts"],
   outExtension: { ".js": ".cjs" },
   outdir: "dist",

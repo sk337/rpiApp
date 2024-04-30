@@ -158,4 +158,6 @@ async function mainLoop(panel: lcd){
   panel.writeLn(0, text2Write);
 }
 
-setInterval(mainLoop, 5000, panel);
+
+const secondsWait = 10
+setInterval(mainLoop, secondsWait*1000 , panel);
